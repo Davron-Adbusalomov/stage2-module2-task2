@@ -31,7 +31,7 @@ public class LoginServlet extends HttpServlet {
         String password = httpServletRequest.getParameter("password");
 
         for (int i = 0; i < Users.getInstance().getUsers().size(); i++) {
-            if (Users.getInstance().getUsers().get(i).equals(login) && password.isEmpty()){
+            if (Users.getInstance().getUsers().get(i).equals(login) && !password.isEmpty()){
                 HttpSession httpSession = httpServletRequest.getSession();
                 httpSession.setAttribute("user", login);
                 httpServletResponse.sendRedirect("/user/hello.jsp");
